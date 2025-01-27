@@ -20,6 +20,22 @@ const btnVoltar = document.getElementById("btn-voltar");
 const cartoes = document.querySelectorAll(".cartao");
 let cartaoAtual = 0;
 
+// Passo para virar a carta
+
+cartoes.forEach(cartao => {
+    cartao.addEventListener("click", function() {
+        const cartaVirada = cartao.querySelector(".carta-virada");
+
+        //virar o cartão e mostrar o fundo da carta
+        cartao.classList.toggle("virar");
+        cartaVirada.classList.toggle("mostrar-fundo-carta");
+
+        const descricao = cartao.querySelector("descricao");
+        descricao.classList.toggle("esconder");
+
+    })
+})
+
 // Passo 2
 btnAvancar.addEventListener("click", function () {
     if (cartaoAtual === cartoes.length - 1) {
